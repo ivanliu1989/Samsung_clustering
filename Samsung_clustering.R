@@ -19,5 +19,10 @@ legend("bottomright", legend=unique(sub1$activity), col=unique(sub1$activity), p
 dev.off()
 
 ## Clustering based just on average acceleration
+source("myplclust.R")
 distanceMatrix <- dist(sub1[,1:3])
 hclustering  <- hclust(distanceMatrix)
+png("AvgAccDist.png",height = 480,width = 960)
+myplclust(hclustering, lab.col = unclass(sub1$activity))
+dev.off()
+
