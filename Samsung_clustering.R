@@ -33,3 +33,11 @@ plot(sub1[,10], pch=19, col = sub1$activity, ylab = names(sub1)[10])
 plot(sub1[,11], pch=19, col = sub1$activity, ylab = names(sub1)[11])
 legend("bottomright", pch=1, legend = unique(sub1$activity), col = unique(sub1$activity))
 dev.off()
+
+## Clustering based on maximum acceleration
+source("myplclust.R")
+distanceMatrix <- dist(sub1[,10:12])
+hclustering  <- hclust(distanceMatrix)
+png("MaxAccDist.png",height = 480,width = 960)
+myplclust(hclustering, lab.col = unclass(sub1$activity))
+dev.off()
