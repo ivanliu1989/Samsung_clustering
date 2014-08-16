@@ -41,3 +41,12 @@ hclustering  <- hclust(distanceMatrix)
 png("MaxAccDist.png",height = 480,width = 960)
 myplclust(hclustering, lab.col = unclass(sub1$activity))
 dev.off()
+
+## Singular value decomposition
+svd1 = svd(scale(sub1[,-c(562,563)]))
+png("SVD.png", height = 480,width = 960)
+par(mfrow = c(1,2))
+plot(svd1$u[,1], pch=19, col = sub1$activity)
+plot(svd1$u[,2], pch=19, col = sub1$activity)
+legend("bottomright", pch=1, legend = unique(sub1$activity), col = unique(sub1$activity))
+dev.off()
