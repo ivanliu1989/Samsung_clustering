@@ -50,3 +50,9 @@ plot(svd1$u[,1], pch=19, col = sub1$activity)
 plot(svd1$u[,2], pch=19, col = sub1$activity)
 legend("bottomright", pch=1, legend = unique(sub1$activity), col = unique(sub1$activity))
 dev.off()
+
+## Find maximum contributor
+png("maxcont.png", height = 480,width = 480)
+plot(svd1$v[,2], pch=19, col = sub1$activity)
+legend("bottomright", pch=1, legend = unique(sub1$activity), col = unique(sub1$activity))
+dev.off()
