@@ -74,8 +74,13 @@ table(kClust$cluster, sub1$activity)
 kClust <- kmeans(sub1[,-c(562,563)], centers=6, nstart = 1)
 table(kClust$cluster, sub1$activity)
 
+## K-means clustering (nstart = 100, first try)
+kClust <- kmeans(sub1[,-c(562,563)], centers=6, nstart = 100)
+table(kClust$cluster, sub1$activity) 
 
-
+## K-means clustering (nstart = 100, second try)
+kClust <- kmeans(sub1[,-c(562,563)], centers=6, nstart = 100)
+table(kClust$cluster, sub1$activity)
 
 
 
