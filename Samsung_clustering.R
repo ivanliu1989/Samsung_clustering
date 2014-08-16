@@ -64,4 +64,21 @@ hclustering <- hclust(distanceMatrix)
 png("ClustMaxCont.png", height = 480,width = 960)
 myplclust(hclustering,lab.col=unclass(sub1$activity))
 dev.off()
+names(samsungData)[maxContrib]
+
+## K-means clustering (nstart = 1, first try)
+kClust <- kmeans(sub1[,-c(562,563)], centers=6)
+table(kClust$cluster, sub1$activity)
+
+## K-means clustering (nstart = 1, second try)
+kClust <- kmeans(sub1[,-c(562,563)], centers=6, nstart = 1)
+table(kClust$cluster, sub1$activity)
+
+
+
+
+
+
+
+
 
