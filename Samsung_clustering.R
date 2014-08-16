@@ -26,3 +26,10 @@ png("AvgAccDist.png",height = 480,width = 960)
 myplclust(hclustering, lab.col = unclass(sub1$activity))
 dev.off()
 
+## Plotting max acceleration for the first subject
+png("MaxAcc1.png", height = 480,width = 960)
+par(mfrow = c(1,2))
+plot(sub1[,10], pch=19, col = sub1$activity, ylab = names(sub1)[10])
+plot(sub1[,11], pch=19, col = sub1$activity, ylab = names(sub1)[11])
+legend("bottomright", pch=1, legend = unique(sub1$activity), col = unique(sub1$activity))
+dev.off()
