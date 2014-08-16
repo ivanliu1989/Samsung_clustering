@@ -82,8 +82,15 @@ table(kClust$cluster, sub1$activity)
 kClust <- kmeans(sub1[,-c(562,563)], centers=6, nstart = 100)
 table(kClust$cluster, sub1$activity)
 
+## Cluster 1 Variable Centers (Laying)
+png("kclust1.png", height = 480,width = 480)
+plot(kClust$center[1, 1:10], pch = 19, ylab = "Cluster Center", xlab = "")
+dev.off()
 
-
+## Cluster 2 Variable Centers (Walking)
+png("kclust2.png", height = 480,width = 480)
+plot(kClust$center[4, 1:10], pch = 19, ylab = "Cluster Center", xlab = "")
+dev.off()
 
 
 
