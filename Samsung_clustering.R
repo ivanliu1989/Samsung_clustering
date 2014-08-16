@@ -56,3 +56,12 @@ png("maxcont.png", height = 480,width = 480)
 plot(svd1$v[,2], pch=19, col = sub1$activity)
 legend("bottomright", pch=1, legend = unique(sub1$activity), col = unique(sub1$activity))
 dev.off()
+
+## New clustering with maximum contributer
+maxContrib <- which.max(svd1$v[,2])
+distanceMatrix <- dist(sub1[,c(10:12, maxContrib)])
+hclustering <- hclust(distanceMatrix)
+png("ClustMaxCont.png", height = 480,width = 960)
+myplclust(hclustering,lab.col=unclass(sub1$activity))
+dev.off()
+
